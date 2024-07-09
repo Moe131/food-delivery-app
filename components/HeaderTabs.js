@@ -28,6 +28,6 @@ const HeaderButtons = (props) => (
             }}
             onPress={ () => props.setActiveTab(props.text) }
         >
-            <Text style = {{color:props.text === props.activeTab ? "white" : "black" , fontSize: 16, fontWeight:90 }}>{props.text}</Text>
+            <Text style = {{color:props.text === props.activeTab ? "white" : "black" , fontSize: 15, fontWeight:900 }}>{props.text}</Text>
         </TouchableOpacity>
     );
