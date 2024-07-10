@@ -35,10 +35,10 @@ export default function Categories(){
                 marginTop: 6,
                 backgroundColor :"white",
                 paddingVertical : 10,
-                paddingLeft: 20 
+                paddingLeft: 20, 
             }}
         >
-            <ScrollView horizontal>
+            <ScrollView horizontal> 
                 { items.map( (item,index) => (
                      <View key={index} style={{marginLeft: 12, alignItems :"center"}}>
                         <Image source={item.image} style={{width: 50, height:40 , resizeMode: "contain"}}/>
