@@ -1,9 +1,8 @@
 import React from "react";
 import {View, Text, Image, TouchableOpacity} from "react-native";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-import Categories from "./Categories";
 
-const localRestaurants = [
+export const localRestaurants = [
     {
         name: "Benihana",
         image_url: "https://mamalikestocook.com/wp-content/uploads/2016/08/20160804_131027.jpg",
@@ -17,21 +16,21 @@ const localRestaurants = [
         image_url: "https://mamalikestocook.com/wp-content/uploads/2016/08/20160804_131027.jpg",
         categories: ["Persian", "Bae"],
         price: "$$",
-        reviews : 432,
+        review : 432,
         rating: 4.1
     }
 ]
 
-export default function RestaurantItems(){
+export default function RestaurantItems(props){
     return (
         <TouchableOpacity activeOpacity={1} style={{marginBottom: 10}}>
-            {localRestaurants.map( (restaurant, index) => (
+            {props.restaurantsData.map( (restaurant, index) => (
                 <View key={index} style={{ marginTop: 10, padding:15, backgroundColor:"white"}}>
                     <RestaurantImage image_url={restaurant.image_url}/>
                     <RestaurantInfo  name= {restaurant.name} 
                                     categories={restaurant.categories} 
                                     price={restaurant.price}
-                                    reviews={restaurant.reviews}
+                                    reviews={restaurant.review_count}
                                     rating={restaurant.rating}
                     />
                 </View>
