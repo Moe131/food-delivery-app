@@ -9,13 +9,14 @@ const YELP_API_KEY = process.env.EXPO_PUBLIC_YELP_API_KEY
 
 export default function Home(){
     const [restaurantsData, setRestaurantsData] = React.useState(localRestaurants)
-
+    const [city, setCity] = React.useState("Irvine")
+    
     React.useEffect(()=> {
         fetchRestaurants();
-    }, []);
+    }, [city]);
 
     async function fetchRestaurants() {
-        const url = "https://api.yelp.com/v3/businesses/search?location=Irvine&sort_by=best_match";
+        const url = "https://api.yelp.com/v3/businesses/search?location="+ city +"&sort_by=best_match";
         const options = {
             method : "GET",
             headers: {
@@ -32,7 +33,7 @@ export default function Home(){
         <SafeAreaView style= {{backgroundColor: "#eee", flex: 1}}>
             <View style={{backgroundColor:"white", padding: 15}}>
                 <HeaderTabs />
-                <SearchBar />
+                <SearchBar cityHandler={(newCity) => setCity(newCity)} />
             </View>
             <ScrollView vertical>
                 <Categories/>
