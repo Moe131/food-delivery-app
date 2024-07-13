@@ -11,6 +11,7 @@ export default function SearchBar(props){
     return (
         <View style={{marginTop: 15, flexDirection: "row"}}>
             <GooglePlacesAutocomplete 
+                placeholder="Search"
                 query={{key: GOOGLE_API_KEY}}
                 onPress={(data, details = null) => {
                         const city = data.description.split(',')[0]
@@ -51,7 +52,6 @@ export default function SearchBar(props){
                         <Text style={{marginLeft: 6}}>Search</Text>
                     </View>
                 )}
-                placeholder="Search"
                  />
         </View>
     );

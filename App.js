@@ -1,9 +1,9 @@
-import { View, Text , SafeAreaView} from "react-native";
-import Home from "./screens/Home";
-import RestaurantDetail from "./screens/RestaurantDetail";
+import 'react-native-gesture-handler';
+import React from 'react';
+import RootNavigation from "./navigation";
 
 export default function App() {
   return (
-      <RestaurantDetail/>
+    <RootNavigation/>
   );
 }
