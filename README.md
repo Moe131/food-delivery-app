@@ -1,4 +1,10 @@
-# My Universal React Project
+# Food Delivery React Native App
+
+
+FoodDeliveryApp is a React Native application that helps users find nearby restaurants using Google Places API and Yelp API. The app provides a seamless food delivery experience by allowing users to view restaurant details, add items to a cart, and place orders.
+
+![photo_2024-07-13 16 27 29](https://github.com/user-attachments/assets/223db079-d859-4cf0-a10c-2ce2bd9cdd7b)
+
 
 <p>
   <!-- iOS -->
@@ -15,29 +21,19 @@
   </a>
 </p>
 
-## 🚀 How to use
+## Features
+- Locate user using Google Places API
+- Fetch nearby restaurants using Yelp API
+- View restaurant details and menus
+- Add restaurant items to a cart
+- Place orders directly through the app
+- User-friendly and intuitive UI
 
-- Install packages with `yarn` or `npm install`.
-  - If you have native iOS code run `npx pod-install`
-- Run `yarn start` or `npm run start` to start the bundler.
-- Open the project in a React runtime to try it:
-  - iOS: [Client iOS](https://itunes.apple.com/app/apple-store/id982107779)
-  - Android: [Client Android](https://play.google.com/store/apps/details?id=host.exp.exponent&referrer=blankexample)
-  - Web: Any web browser
+## Contributions
+Contributions are always welcome! Please follow these steps:
 
-## Running/Modifying Native Code
-
-You can generate native iOS and Android projects from your Expo config file (**app.json**/ **app.config.js**) by runnning `npx expo prebuild`. These native projects can then be compiled and run via XCode and Android Studio.
-
-> 💡 Learn more about [native code in Expo](https://docs.expo.dev/workflow/customizing/)
-
-## Publishing
-
-- Deploy the native app to the App store and Play store using this guide: [Deployment](https://docs.expo.dev/distribution/app-stores/).
-- Deploy the website using this guide: [Web deployment](https://docs.expo.dev/distribution/publishing-websites/).
-
-## 📝 Notes
-
-- Learn more about [Universal React](https://docs.expo.dev/).
-- See what API and components are [available in the React runtimes](https://docs.expo.dev/versions/latest/).
-- Find out more about developing apps and websites: [Guides](https://docs.expo.dev/guides/).
+1. Fork the repository.
+2. Create your feature branch (git checkout -b feature/AmazingFeature).
+3. Commit your changes (git commit -m 'Add some AmazingFeature').
+4. Push to the branch (git push origin feature/AmazingFeature).
+5. Open a pull request.
