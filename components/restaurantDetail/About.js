@@ -48,7 +48,7 @@ function RestaurantDescription(props){
             style={{
                 fontSize: 15,
                 fontWeight: "400",
-                marginVertical: 10,
+                marginTop: 10,
                 marginHorizontal: 15
             }}
         >
