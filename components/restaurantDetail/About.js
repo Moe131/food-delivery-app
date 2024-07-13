@@ -1,23 +1,16 @@
 import React from "react";
 import {View, Text, Image} from "react-native";
 
-const yelpRestaurant = {
-    name : "Urban Plates",
-    image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/16/b6/e1/xix-private-dining-room.jpg?w=600&h=-1&s=1",
-    price: "$$",
-    rating : 4.5,
-    reviews : "1500",
-    categories : [{title : "Thai"}, {title: "Comfort food"}]
-}
 
-const categories = yelpRestaurant.categories.map( (cat) => cat.title ).join(" • ") 
-const description = categories + " • " 
-+ (yelpRestaurant.price ? yelpRestaurant.price + " • " : " " )
-+ " " + yelpRestaurant.rating
-+  " ⭐ (" + yelpRestaurant.reviews + ")" ;
-
-export default function About(){
-    return (
+export default function About(props){
+    const yelpRestaurant = props.route.params;
+    const categories = yelpRestaurant.categories.map( (cat) => cat.title ).join(" • ") 
+    const description = categories + " • " 
+        + (yelpRestaurant.price ? yelpRestaurant.price + " • " : " " )
+        + " " + yelpRestaurant.rating
+        +  " ⭐ (" + yelpRestaurant.reviews + ")" ;
+    
+        return (
         <View >
             <RestaurantImage image={yelpRestaurant.image}/>
             <RestaurantTitle title={yelpRestaurant.name}/>
