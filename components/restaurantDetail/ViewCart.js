@@ -40,8 +40,8 @@ export default function ViewCart(){
                             padding: 13
                         }}
                     >
-                        <Text style={{ color: "white",fontSize: 20, marginRight:20}}> VIEW CART</Text>
-                        <Text style={{ color: "white",fontSize: 20}}> {totalString}</Text>
+                        <Text style={{ color: "white",fontSize: 20, marginRight:18}}> VIEW CART</Text>
+                        <Text style={{ color: "white",fontSize: 20, paddingRight: 2}}> {totalString}</Text>
                     </TouchableOpacity>
                 </View>
             </View>
