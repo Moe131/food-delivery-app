@@ -2,6 +2,8 @@ import React from "react";
 import { View, Text, TouchableOpacity, Modal, ScrollView} from "react-native"
 import { useSelector } from "react-redux";
 import OrderItem from "./OrderItem";
+import { getFirestore, collection, addDoc, serverTimestamp  } from "firebase/firestore";
+import {app} from "../../firebase"
 
 export default function ViewCart(){
     const [modalVisible, setModalVisible] = React.useState(false);
@@ -16,6 +18,16 @@ export default function ViewCart(){
         style: "currency",
         currency : "USD",
     });
+
+    async function addOrderToFirebase() {
+        const db = getFirestore(app);
+        await addDoc(collection(db, "orders"), {
+            items : items,
+            restaurantName: restaurantName,
+            createdAt: serverTimestamp()
+        });
+        setModalVisible(false);
+    }
 
     function checkoutModalContent() {
         return (
@@ -44,7 +56,7 @@ export default function ViewCart(){
                         }}    
                     > {restaurantName}</Text>
                     <ScrollView>
-                    {items.map( (item, index) => { return <OrderItem index={index} item={item} />})}
+                    {items.map( (item, index) => { return <OrderItem key={index} item={item} />})}
                     </ScrollView>
                     <View style={{flexDirection:"row", justifyContent: "space-between", marginTop: 15, marginHorizontal:15}}>
                         <Text style={{fontWeight:"600", fontSize:15}}>Subtotal</Text>
@@ -61,7 +73,7 @@ export default function ViewCart(){
                             position: "relative",
                             alignSelf: "center"
                         }}
-                        onPress={()=> setModalVisible(false)}
+                        onPress={()=> addOrderToFirebase()}
                     >
                         <Text style={{ color : "white"}}> Checkout</Text>
                     </TouchableOpacity>
