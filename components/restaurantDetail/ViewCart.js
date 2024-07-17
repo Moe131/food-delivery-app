@@ -5,7 +5,7 @@ import OrderItem from "./OrderItem";
 import { getFirestore, collection, addDoc, serverTimestamp  } from "firebase/firestore";
 import {app} from "../../firebase"
 
-export default function ViewCart(){
+export default function ViewCart({navigation}){
     const [modalVisible, setModalVisible] = React.useState(false);
 
     const {items, restaurantName }= useSelector((state) => state.cartReducer.selectedItems)
@@ -27,6 +27,7 @@ export default function ViewCart(){
             createdAt: serverTimestamp()
         });
         setModalVisible(false);
+        navigation.navigate("OrderComplete")
     }
 
     function checkoutModalContent() {
