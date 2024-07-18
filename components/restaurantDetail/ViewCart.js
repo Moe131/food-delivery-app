@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, TouchableOpacity, Modal, ScrollView} from "react-native"
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import OrderItem from "./OrderItem";
 import { getFirestore, collection, addDoc, serverTimestamp  } from "firebase/firestore";
 import {app} from "../../firebase"
@@ -8,7 +8,20 @@ import {app} from "../../firebase"
 export default function ViewCart({navigation}){
     const [modalVisible, setModalVisible] = React.useState(false);
 
-    const {items, restaurantName }= useSelector((state) => state.cartReducer.selectedItems)
+    const {items, restaurantName }= useSelector((state) => state.cartReducer.selectedItems);
+
+    const dispatch = useDispatch()
+    function selectItem(item, checkboxValue) {
+        dispatch (
+        {
+            type : "ADD_TO_CART",
+            payload : {
+                ...item,
+                restaurantName: restaurantName,
+                checkboxValue : checkboxValue,
+            }
+        })
+    }
 
     const total = items.map( (item) => 
         Number(item.price.replace("$","") )).
@@ -27,7 +40,11 @@ export default function ViewCart({navigation}){
             createdAt: serverTimestamp()
         });
         setModalVisible(false);
-        navigation.navigate("OrderComplete")
+        navigation.navigate("OrderComplete", {items : items , totalString: totalString, restaurantName:restaurantName})
+        for (let i=0; i< items.length ; i++){
+            selectItem(items[i],false)
+        }
+
     }
 
     function checkoutModalContent() {
