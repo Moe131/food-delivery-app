@@ -1,9 +1,9 @@
 import React from "react";
-import {View, SafeAreaView, ScrollView} from "react-native";
+import {View, SafeAreaView, ScrollView, ActivityIndicator} from "react-native";
 import HeaderTabs from "../components/home/HeaderTabs";
 import SearchBar from "../components/home/SearchBar";
 import Categories from "../components/home/Categories";
-import Restaurants ,{localRestaurants} from "../components/home/Restaurans";
+import Restaurants from "../components/home/Restaurans";
 import BottomTabs from "../components/home/BottomTabs";
 import { Divider } from "react-native-elements/dist/divider/Divider";
 
@@ -11,11 +11,12 @@ import { Divider } from "react-native-elements/dist/divider/Divider";
 const YELP_API_KEY = process.env.EXPO_PUBLIC_YELP_API_KEY
 
 export default function Home({navigation}){
-    const [restaurantsData, setRestaurantsData] = React.useState(localRestaurants)
+    const [restaurantsData, setRestaurantsData] = React.useState(null)
     const [city, setCity] = React.useState("Irvine");
     const [activeTab, setActiveTab] = React.useState("Delivery");
 
     React.useEffect(()=> {
+        setRestaurantsData(null)
         fetchRestaurants();
     }, [city, activeTab]);
 
@@ -42,9 +43,16 @@ export default function Home({navigation}){
                 <HeaderTabs activeTab={activeTab} setActiveTab={(tab) =>setActiveTab(tab)} />
                 <SearchBar cityHandler={(newCity) => setCity(newCity)} />
             </View>
-            <ScrollView vertical>
+            <ScrollView vertical
+                contentContainerStyle={{flexGrow:1}}
+            >
                 <Categories/>
+                {restaurantsData ?
                 <Restaurants restaurantsData={restaurantsData} navigation={navigation}/> 
+                :
+                <ActivityIndicator size="large"
+                style={{ padding : 100 }} />
+                }
             </ScrollView>
             <Divider width={1}/>
             <BottomTabs />

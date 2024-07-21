@@ -29,7 +29,9 @@ export default function MenuItems({restaurantName, foods, marginLeft, hideCheckb
     }
 
     return (
-        <ScrollView vertical>
+        <ScrollView vertical
+        contentContainerStyle={{paddingBottom: 350}}
+        >
             {foods.map((food, index) => {
                 return (
                     <View key={index} >
