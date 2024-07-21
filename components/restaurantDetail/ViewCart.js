@@ -49,14 +49,17 @@ export default function ViewCart({navigation}){
 
     function checkoutModalContent() {
         return (
-            <View
+            <TouchableOpacity
                 style={{
                     flex: 1,
                     justifyContent: "flex-end",
                     backgroundColor: "rgba(0,0,0,0.7)",
                 }}
+                onPress={() => setModalVisible(false)}
+                activeOpacity={1}
+
             >  
-                <View
+                <TouchableOpacity
                     style={{
                         backgroundColor: "white",
                         padding: 16,
@@ -64,6 +67,8 @@ export default function ViewCart({navigation}){
                         borderWidth: 1,
 
                     }}
+                    onPress={()=> {} }
+                    activeOpacity={1}
                 >
                     <Text
                         style={{
@@ -95,8 +100,8 @@ export default function ViewCart({navigation}){
                     >
                         <Text style={{ color : "white"}}> Checkout</Text>
                     </TouchableOpacity>
-                </View>
-            </View>
+                </TouchableOpacity>
+            </TouchableOpacity>
         )
     }
 

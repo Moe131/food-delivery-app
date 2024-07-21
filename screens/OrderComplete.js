@@ -1,6 +1,5 @@
 import React from "react";
 import {View, Text, SafeAreaView} from "react-native"
-import { useSelector } from "react-redux";
 import LottieView from "lottie-react-native"
 import MenuItems from "../components/restaurantDetail/MenuItems";
 

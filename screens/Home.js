@@ -20,7 +20,7 @@ export default function Home({navigation}){
     }, [city, activeTab]);
 
     async function fetchRestaurants() {
-        const url = "https://api.yelp.com/v3/businesses/search?location="+ city +"&sort_by=best_match";
+        const url = "https://api.yelp.com/v3/businesses/search?location="+ city +"&term=food&sort_by=best_match&limit=30";
         const options = {
             method : "GET",
             headers: {
