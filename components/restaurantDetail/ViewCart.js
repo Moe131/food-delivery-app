@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, TouchableOpacity, Modal, ScrollView} from "react-native"
+import { View, Text, TouchableOpacity, Modal, ScrollView, ActivityIndicator} from "react-native"
 import { useSelector, useDispatch } from "react-redux";
 import OrderItem from "./OrderItem";
 import { getFirestore, collection, addDoc, serverTimestamp  } from "firebase/firestore";
@@ -7,6 +7,7 @@ import {app} from "../../firebase"
 
 export default function ViewCart({navigation}){
     const [modalVisible, setModalVisible] = React.useState(false);
+    const [loading, setLoading] = React.useState(false)
 
     const {items, restaurantName }= useSelector((state) => state.cartReducer.selectedItems);
 
@@ -33,12 +34,14 @@ export default function ViewCart({navigation}){
     });
 
     async function addOrderToFirebase() {
+        setLoading(true)
         const db = getFirestore(app);
         await addDoc(collection(db, "orders"), {
             items : items,
             restaurantName: restaurantName,
             createdAt: serverTimestamp()
         });
+        setLoading(false)
         setModalVisible(false);
         navigation.navigate("OrderComplete", {items : items , totalString: totalString, restaurantName:restaurantName})
         for (let i=0; i< items.length ; i++){
@@ -59,9 +62,11 @@ export default function ViewCart({navigation}){
                 activeOpacity={1}
 
             >  
+                {loading && <ActivityIndicator size="large" style={{ padding : 100 }} /> }
+
                 <TouchableOpacity
                     style={{
-                        backgroundColor: "white",
+                        backgroundColor: loading ? "gray":"white",
                         padding: 16,
                         height: 500,
                         borderWidth: 1,
@@ -115,7 +120,8 @@ export default function ViewCart({navigation}){
         >
             {checkoutModalContent()}
         </Modal>
-        { total>0 && (
+        { 
+        total>0 && (
             <View 
                 style={{
                     position: "absolute",
