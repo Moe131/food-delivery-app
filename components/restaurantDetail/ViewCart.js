@@ -83,10 +83,12 @@ export default function ViewCart({navigation}){
                             marginBottom: 10
                         }}    
                     > {restaurantName}</Text>
-                    <ScrollView>
-                    {items.map( (item, index) => { return <OrderItem key={index} item={item} />})}
+                    <ScrollView >
+                        <View onStartShouldSetResponder={() => true}>
+                            {items.map( (item, index) => { return <OrderItem key={index} item={item} />})}
+                        </View>
                     </ScrollView>
-                    <View style={{flexDirection:"row", justifyContent: "space-between", marginTop: 15, marginHorizontal:15}}>
+                    <View style={{flexDirection:"row", justifyContent: "space-between", marginTop: 25, marginHorizontal:15}}>
                         <Text style={{fontWeight:"600", fontSize:15}}>Subtotal</Text>
                         <Text>{totalString}</Text>
                     </View>
