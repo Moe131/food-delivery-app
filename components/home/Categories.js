@@ -33,12 +33,12 @@ export default function Categories(){
         <View 
             style={{
                 marginTop: 6,
-                backgroundColor :"white",
+                backgroundColor :"#ffd95c",
                 paddingVertical : 10,
                 paddingLeft: 20, 
             }}
         >
-            <ScrollView horizontal> 
+            <ScrollView horizontal showsHorizontalScrollIndicator={false}> 
                 { items.map( (item,index) => (
                      <View key={index} style={{marginLeft: 12, alignItems :"center"}}>
                         <Image source={item.image} style={{width: 50, height:40 , resizeMode: "contain"}}/>

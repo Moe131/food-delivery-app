@@ -66,7 +66,7 @@ export default function ViewCart({navigation}){
 
                 <TouchableOpacity
                     style={{
-                        backgroundColor: loading ? "gray":"white",
+                        backgroundColor: loading ? "gray":"#ffd95c",
                         padding: 16,
                         height: 500,
                         borderWidth: 1,

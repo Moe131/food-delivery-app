@@ -12,6 +12,9 @@ export default function SearchBar(props){
         <View style={{marginTop: 15, flexDirection: "row"}}>
             <GooglePlacesAutocomplete 
                 placeholder="Search"
+                textInputProps={{
+                    placeholderTextColor: 'black',
+                  }}
                 query={{key: GOOGLE_API_KEY}}
                 onPress={(data, details = null) => {
                         const city = data.description.split(',')[0]
@@ -19,17 +22,16 @@ export default function SearchBar(props){
                     } }
                 styles={{
                     textInput: {
-                        backgroundColor : "#eee",
-                        borderRadius: 20,
+                        backgroundColor : "white",
+                        borderRadius: 0,
                         fontWeight : "700",
-                        marginTop : 7
+                        marginTop : 7,
                     },
                     textInputContainer: {
-                        backgroundColor : "#eee",
-                        borderRadius : 15,
+                        backgroundColor : "white",
+                        borderRadius : 5,
                         flexDirection : "row",
                         alignItems : "center",
-                        marginRight : 10
                     }
                 }}
                 renderLeftButton={ () => (
@@ -42,14 +44,15 @@ export default function SearchBar(props){
                         style={{
                             flexDirection: "row",
                             marginRight: 8,
-                            backgroundColor: "white",
+                            backgroundColor: "black",
                             borderRadius : 10,
                             padding : 9,
                             alignItems: "center"
+    
                             }}
                     >
-                        <AntDesign name="clockcircle" size={11}/>
-                        <Text style={{marginLeft: 6}}>Search</Text>
+                        <AntDesign name="clockcircle" color={"white"} size={11}/>
+                        <Text style={{marginLeft: 6, color: "white"}}>Search</Text>
                     </View>
                 )}
                  />

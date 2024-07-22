@@ -38,8 +38,8 @@ export default function Home({navigation}){
     }
 
      return (
-        <SafeAreaView style= {{backgroundColor: "#eee", flex: 1}}>
-            <View style={{backgroundColor:"white", padding: 15}}>
+        <SafeAreaView style= {{backgroundColor: "#ffd95c", flex: 1}}>
+            <View style={{backgroundColor:"#ffd95c", padding: 15}}>
                 <HeaderTabs activeTab={activeTab} setActiveTab={(tab) =>setActiveTab(tab)} />
                 <SearchBar cityHandler={(newCity) => setCity(newCity)} />
             </View>

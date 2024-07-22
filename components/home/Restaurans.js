@@ -2,7 +2,7 @@ import React from "react";
 import {View, Text, Image, TouchableOpacity} from "react-native";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 
-export const localRestaurants = [
+export const sample = [
     {
         name: "Benihana",
         image_url: "https://mamalikestocook.com/wp-content/uploads/2016/08/20160804_131027.jpg",
@@ -28,7 +28,7 @@ export default function Restaurants(props){
             <TouchableOpacity 
                 key={index}
                 activeOpacity={1} 
-                style={{marginBottom: 10}}
+                style={{marginBottom: 5}}
                 onPress={ () => props.navigation.navigate("RestaurantDetail",
                     {   
                         name: restaurant.name,
@@ -40,7 +40,7 @@ export default function Restaurants(props){
                     }
                 )}
             >
-                <View style={{ marginTop: 10, padding:15, backgroundColor:"white"}}>
+                <View style={{ marginHorizontal:10, marginTop: 10, padding:15, borderRadius:10, backgroundColor:"white"}}>
                     <RestaurantImage image_url={restaurant.image_url}/>
                     <RestaurantInfo  name= {restaurant.name} 
                                     categories={restaurant.categories} 

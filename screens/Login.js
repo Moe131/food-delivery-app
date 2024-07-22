@@ -47,8 +47,7 @@ export default function Login({navigation}){
         <View
             style={styles.container}
         >
-            <Text style={{alignSelf:"center", fontSize:35, fontWeight: 'bold',
-}}> Sign In</Text>
+            <Text style={{alignSelf:"center", fontSize:35, fontWeight: 'bold'}}> Sign In</Text>
             <TextInput 
                 style={ styles.input}
                 value= {email}
