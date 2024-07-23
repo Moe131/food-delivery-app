@@ -10,7 +10,7 @@ import { Divider } from "react-native-elements/dist/divider/Divider";
 
 const YELP_API_KEY = process.env.EXPO_PUBLIC_YELP_API_KEY
 
-export default function Home({navigation}){
+export default function Home({navigation, route}){
     const [restaurantsData, setRestaurantsData] = React.useState(null)
     const [city, setCity] = React.useState("Irvine");
     const [activeTab, setActiveTab] = React.useState("Delivery");
@@ -36,7 +36,6 @@ export default function Home({navigation}){
             ))
         .catch( (e)=> console.log(e))
     }
-
      return (
         <SafeAreaView style= {{backgroundColor: "#ffd95c", flex: 1}}>
             <View style={{backgroundColor:"#ffd95c", padding: 15}}>
@@ -55,7 +54,7 @@ export default function Home({navigation}){
                 }
             </ScrollView>
             <Divider width={1}/>
-            <BottomTabs />
+            <BottomTabs navigation={navigation} />
         </SafeAreaView>
     );
 }

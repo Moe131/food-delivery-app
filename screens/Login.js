@@ -2,7 +2,10 @@ import React from "react";
 import {View, Text, TextInput, ImageBackground, ActivityIndicator, Pressable, StyleSheet} from "react-native";
 import {app} from "../firebase"
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword} from "firebase/auth";
-import backgroundImage from "../assets/images/background.jpeg"
+import backgroundImage from "../assets/images/background.jpeg";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+
 
 export default function Login({navigation}){
     const [email, setEmail] = React.useState()
@@ -11,13 +14,23 @@ export default function Login({navigation}){
     const [loading, setLoading] = React.useState(false)
     const FIREBASE_AUTH = getAuth(app);
 
+    async function storeUser(value){
+        try {
+          await AsyncStorage.setItem('user', value);
+          console.log("user saved " + value )
+        } catch (e) {
+          console.log(e)
+        }
+      };
+
     async function signIn(){
         setLoading(true);
         try {
             const resp = await signInWithEmailAndPassword(FIREBASE_AUTH,email,password)
-            console.log(resp)
+            storeUser(resp.user.email)
         } catch(error) {
             setError("Wrong email/password");
+            console.log(error.message)
             return;
         } finally {
             setLoading(false);
@@ -30,7 +43,7 @@ export default function Login({navigation}){
         setLoading(true);
         try {
             const resp = await createUserWithEmailAndPassword(FIREBASE_AUTH,email,password)
-            console.log(resp)
+            user = resp.user.email
         } catch(error) {
             setError(error.message);
             return;
