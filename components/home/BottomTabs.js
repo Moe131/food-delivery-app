@@ -15,7 +15,7 @@ export default function BottomTabs({navigation}){
             >
             <Icon icon="home" text="Home" dest="Home" navigation={navigation}/> 
             <Icon icon="search" text="Browse" dest="Home" navigation={navigation}/> 
-            <Icon icon="receipt" text="Orders" dest="Home" navigation={navigation}/> 
+            <Icon icon="receipt" text="Orders" dest="Orders" navigation={navigation}/> 
             <Icon icon="user" text="Account" dest="Account" navigation={navigation}/> 
         </View>
     );

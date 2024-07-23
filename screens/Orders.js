@@ -1,12 +1,10 @@
 import React from "react";
 import {View, Text, SafeAreaView} from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import BottomTabs from "../components/home/BottomTabs";
 
 
-
-
-export default function Account({navigation, route}){
+export default function Orders({navigation, route}){
     const [user, setUser] = React.useState()
 
     React.useEffect( () => {
@@ -26,7 +24,7 @@ export default function Account({navigation, route}){
 
     return (
     <SafeAreaView style= {{backgroundColor: "#ffd95c", flex: 1}}>
-        <Text style={{alignSelf:"center", fontSize:15, marginVertical:30, flex:1}}>Welcome back {user} !</Text>
+        <Text style={{alignSelf:"center", fontSize:15, marginVertical:30, flex:1}}>Your orders</Text>
         <View
             style={{bottom:0}}
         >

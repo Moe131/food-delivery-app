@@ -5,8 +5,6 @@ import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword} fr
 import backgroundImage from "../assets/images/background.jpeg";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-
-
 export default function Login({navigation}){
     const [email, setEmail] = React.useState()
     const [password, setPassword] = React.useState()
@@ -17,7 +15,6 @@ export default function Login({navigation}){
     async function storeUser(value){
         try {
           await AsyncStorage.setItem('user', value);
-          console.log("user saved " + value )
         } catch (e) {
           console.log(e)
         }
@@ -100,7 +97,6 @@ const styles = StyleSheet.create({
         marginTop: 100,
         marginHorizontal: 50,
     },
-
     button: {
       alignItems: 'center',
       justifyContent: 'center',
