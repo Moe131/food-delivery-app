@@ -56,7 +56,7 @@ export default function ViewCart({navigation}){
                 style={{
                     flex: 1,
                     justifyContent: "flex-end",
-                    backgroundColor: "rgba(0,0,0,0.7)",
+                    backgroundColor: "rgba(0,0,0,0.8)",
                 }}
                 onPress={() => setModalVisible(false)}
                 activeOpacity={1}
@@ -78,23 +78,24 @@ export default function ViewCart({navigation}){
                     <Text
                         style={{
                             textAlign: "center",
-                            fontWeight: "600",
-                            fontSize: 18,
-                            marginBottom: 10
+                            fontWeight: "700",
+                            fontSize: 20,
+                            marginBottom: 10,
+                            padding: 5,
                         }}    
                     > {restaurantName}</Text>
-                    <ScrollView >
-                        <View onStartShouldSetResponder={() => true}>
+                    <ScrollView style={{backgroundColor:loading ? "gray":"white", paddingHorizontal: 10, borderRadius: 10}}>
+                        <View onStartShouldSetResponder={() => true} >
                             {items.map( (item, index) => { return <OrderItem key={index} item={item} />})}
                         </View>
                     </ScrollView>
-                    <View style={{flexDirection:"row", justifyContent: "space-between", marginTop: 25, marginHorizontal:15}}>
-                        <Text style={{fontWeight:"600", fontSize:15}}>Subtotal</Text>
-                        <Text>{totalString}</Text>
+                    <View style={{flexDirection:"row", justifyContent: "space-between", paddingTop: 17, paddingHorizontal: 25,}}>
+                        <Text style={{fontWeight:"600", fontSize:18}}>Subtotal</Text>
+                        <Text style={{fontWeight:"600", fontSize:18}}>{totalString}</Text>
                     </View>
                     <TouchableOpacity 
                         style={{
-                            marginVertical: 30,
+                            marginVertical: 25,
                             backgroundColor: "black",
                             alignItems: "center",
                             padding: 13,
