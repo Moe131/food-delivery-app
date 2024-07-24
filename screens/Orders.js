@@ -2,6 +2,8 @@ import React from "react";
 import {View, Text, SafeAreaView} from "react-native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import BottomTabs from "../components/home/BottomTabs";
+import { Divider } from "react-native-elements/dist/divider/Divider";
+
 
 
 export default function Orders({navigation, route}){
@@ -28,6 +30,7 @@ export default function Orders({navigation, route}){
         <View
             style={{bottom:0}}
         >
+            <Divider width={1}/>
             <BottomTabs navigation={navigation}/>
         </View>
     </SafeAreaView>

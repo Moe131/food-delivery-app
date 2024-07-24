@@ -3,6 +3,8 @@ import {View, Text, SafeAreaView} from "react-native"
 import LottieView from "lottie-react-native"
 import MenuItems from "../components/restaurantDetail/MenuItems";
 import BottomTabs from "../components/home/BottomTabs";
+import { Divider } from "react-native-elements/dist/divider/Divider";
+
 
 export default function OrderComplete({route, navigation}){
 
@@ -25,6 +27,7 @@ export default function OrderComplete({route, navigation}){
                 autoPlay
                 speed={0.5}
                 />
+            <Divider width={1}/>
             <BottomTabs navigation={navigation} />
         </SafeAreaView>
     )
