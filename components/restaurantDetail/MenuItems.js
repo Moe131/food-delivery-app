@@ -30,11 +30,11 @@ export default function MenuItems({restaurantName, foods, marginLeft, hideCheckb
 
     return (
         <ScrollView vertical
-        contentContainerStyle={{paddingBottom: 350}}
+        contentContainerStyle={{paddingBottom: 15}}
         >
             {foods.map((food, index) => {
                 return (
-                    <View key={index} >
+                    <View key={index} style={{backgroundColor:"white", marginHorizontal: 7,marginTop: 10, borderRadius: 15}}>
                         <View 
                         style={{
                             flexDirection: "row",
@@ -52,7 +52,6 @@ export default function MenuItems({restaurantName, foods, marginLeft, hideCheckb
                         <FoodInfo food={food} />
                         <FoodImage food={food} marginLeft={marginLeft ? marginLeft: 0} />
                         </View>
-                        <Divider width={0.5} />
                     </View>
                 )
             })}
@@ -65,7 +64,7 @@ function FoodInfo(props) {
     return(
         <View 
             style={{
-                width: 240, justifyContent: "space-evenly"
+                width: 230, justifyContent: "space-evenly"
             }}
         >
             <Text style= {{fontSize: 19, fontWeight: "600"}}> {props.food.title} </Text>

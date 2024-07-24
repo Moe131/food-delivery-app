@@ -128,7 +128,7 @@ export default function ViewCart({navigation}){
                 style={{
                     position: "absolute",
                     flex: 1,
-                    marginTop : 700,
+                    marginTop : 650,
                     marginLeft: 50
                 }}
             >
