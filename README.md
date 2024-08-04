@@ -3,6 +3,8 @@
 
 FoodDeliveryApp is a React Native application designed to help users find nearby restaurants using the Google Places API and Yelp API. The app provides a seamless food delivery experience by allowing users to view restaurant details, add items to a cart, and place orders directly through the app. Orders are saved in a Firebase database, and Firebase Auth is used for user sign-in.
 
+Demo Video : https://youtube.com/shorts/ZQD9tCYyF9c?feature=shared
+
 ![photo_2024-07-24 09 00 07](https://github.com/user-attachments/assets/6e0bdd21-58f5-4d63-ad91-6ca7818c2d72)
 ![photo_2024-07-24 08 59 56](https://github.com/user-attachments/assets/2fcbb644-f0b8-4edf-9028-97b7caaa580f)
 ![photo_2024-07-24 09 00 03](https://github.com/user-attachments/assets/0550add2-df04-4f23-b4f2-fcb4da334bdc)
